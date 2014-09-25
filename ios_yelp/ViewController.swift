@@ -34,7 +34,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.estimatedRowHeight = 94
         
         // Do any additional setup after loading the view, typically from a nib.
         client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
@@ -43,27 +42,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             "term": "Thai",
             "location": "San Francisco"
             ])
+        tableView.estimatedRowHeight = 94
+        //tableView.rowHeight = UITableViewAutomaticDimension
         
-        /*
-        client.searchWithTerm("Thai", success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-            println(response)
-            
-            var jsonData: NSData! = NSJSONSerialization.dataWithJSONObject(response, options: NSJSONWritingOptions(0), error: nil)
-            var object = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as NSDictionary
-            
-            self.restros = object["businesses"] as [NSDictionary]
-            var regionInfo = object["region"] as AnyObject! as NSDictionary
-            var center = regionInfo["center"] as NSDictionary
-            var fromLat = center["latitude"] as Double
-            var fromLong = center["longitude"] as Double
-            self.centerLoc = CLLocation(latitude: fromLat, longitude: fromLong)
-            
-            self.tableView.reloadData()
-            
-            }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println(error)
-        }
-    */
+        //self.tableView.reloadData()
+    
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,7 +72,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         var addy = location["address"] as [String]
         var city = location["city"] as String
-        cell.addyLabel.text = "\(addy[0]), \(city)"
+        if (addy != []) {
+            cell.addyLabel.text = "\(addy[0]), \(city)"
+        }
         
         //var restroCoordinate = location["coordinate"] as NSDictionary
         if let restroCoordinate = location["coordinate"] as? NSDictionary {
@@ -134,18 +119,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         var term = self.searchField.text as String
         
-        if (term != "") {
-            self.searchRestro([
+        self.searchRestro([
                 "term": term,
                 "location": "San Francisco",
-                "deals_filter": self.popFilter
-                ])
-        } else {
-            self.searchRestro([
-                "location": "San Francisco",
-                "deals_filter": self.popFilter
-            ])
-        }
+        ])
     }
     
     func searchRestro (param: [String : String]) {
@@ -179,6 +156,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         self.popFilter = dealFilter ? "1" : "0"
+        
+        var term = self.searchField.text as String
+        
+        self.searchRestro([
+            "term": term,
+            "location": "San Francisco",
+            "deals_filter": self.popFilter
+            ])
+        self.tableView.reloadData()
     }
 
     

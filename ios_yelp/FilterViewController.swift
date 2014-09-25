@@ -68,6 +68,8 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
                 ["label":"Take-out"],
             ]],
         ]
+        
+        tableView.reloadData()
         // Do any additional setup after loading the view.
         
     }
@@ -139,6 +141,10 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
         
         selectedStates[indexPath.section] = indexPath.row
         
+        if (tableView.indexPathForSelectedRow() != nil) {
+            tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: true)
+        }
+        
         tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
@@ -161,6 +167,8 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
             cell.nameLabel.text = "Row: \(indexPath.row), Section: \(indexPath.section)"
         }
         cell.nameLabel.text = config[indexPath.row]["label"] as String!
+        
+        println(cell.nameLabel.text)
         
         return cell
     }

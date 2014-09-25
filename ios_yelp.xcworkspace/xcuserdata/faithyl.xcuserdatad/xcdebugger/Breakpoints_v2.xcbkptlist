@@ -2,4 +2,68 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios_yelp/FilterViewController.swift"
+            timestampString = "433313723.920262"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_yelp.FilterViewController.tableView (ios_yelp.FilterViewController)(ObjectiveC.UITableView, cellForRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ObjectiveC.UITableViewCell"
+                  moduleName = "ios_yelp"
+                  urlString = "file:///Users/faithyl/yelp/ios_yelp/FilterViewController.swift"
+                  timestampString = "433313818.643171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "3938">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_yelp.FilterViewController.tableView (ios_yelp.FilterViewController)(ObjectiveC.UITableView, cellForRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ObjectiveC.UITableViewCell"
+                  moduleName = "ios_yelp"
+                  urlString = "file:///Users/faithyl/yelp/ios_yelp/FilterViewController.swift"
+                  timestampString = "433313818.643372"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "5086">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios_yelp/FilterViewController.swift"
+            timestampString = "433313818.633161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
